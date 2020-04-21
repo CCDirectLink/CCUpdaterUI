@@ -97,6 +97,8 @@ func (app *upApplication) ShowPrimaryView() {
 		} else if p.Available() {
 			status = info.NewestVersion + " available"
 		}
+
+		pkg := p
 		packageList = append(packageList, design.ListItemDetails{
 			Icon:    middle.PackageIcon(p),
 			Text:    info.NiceName,
@@ -109,7 +111,7 @@ func (app *upApplication) ShowPrimaryView() {
 				}, func() {
 					app.GSLeftwards()
 					app.Teleport(thePage)
-				}, p)
+				}, pkg)
 			},
 		})
 	}
